@@ -6,7 +6,12 @@ npm init
 npm i express express-graphql graphql
 
 npm i --save-dev nodemon
+```
 
+## run
+
+```bash
+npm run devStart
 ```
 
 ## Config bug 
