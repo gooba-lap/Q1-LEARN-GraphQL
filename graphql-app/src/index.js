@@ -1,6 +1,7 @@
 // const { GraphQLServer } = require('graphql-yoga');
 // ! err -> ⬇ use this below ⬇
 const { createServer } = require('graphql-yoga');
+const { v4: uuidv4 } = require('uuid')
 
 const users = [
     {
@@ -33,7 +34,6 @@ const server = createServer({
                 isSingle: Boolean
                 number: [Int!]!
                 location: Location
-
                 users: [User!]!
             }
             type User {
@@ -45,6 +45,11 @@ const server = createServer({
             type Location {
                 state: String!
                 city: String!
+            }
+
+            # mutations
+            type Mutation {
+                addUser(name: String!, age: Int!): [User!]!
             }
         `,
         // o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o
@@ -60,6 +65,20 @@ const server = createServer({
                 }),
                 users: () => users
             },
+            // o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o
+            Mutation: {
+                addUser: (parent, args, ctx, info) => {
+                    const { name, age } = args;
+
+                    users.push({
+                        id: uuidv4(),
+                        name,
+                        age
+                    })
+
+                    return users 
+                }
+            }
         },
     },
   })
