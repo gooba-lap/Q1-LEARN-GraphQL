@@ -60,6 +60,7 @@ const server = createServer({
             type Mutation {
                 addUser(name: String!, age: Int!): [User!]!
                 updateUser(id: ID!, name: String, age: Int): User!
+                deleteUser(id: ID!): User!
             }
         `,
         // o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o
@@ -92,7 +93,8 @@ const server = createServer({
                     const { id, name, age } = args;
                     const user = users.find((user) => user.id === id);
 
-                    if (!user) {;
+                    if (!user) {
+                        throw new Error(`User with id ${id} does not exist`);
                     }
                     if (name) {
                         user.name = name;
@@ -102,6 +104,15 @@ const server = createServer({
                     }
 
                     return user
+                },
+                deleteUser: (parent, args, ctx, info) => {
+                    const index = users.findIndex((index) => index.id === args.id);
+                    if (index === -1) {
+                        throw new Error(`User with id ${args.id} does not exist.`);
+                    }
+
+                    const deleteUser = users.splice(index, 1);
+                    return deleteUser 
                 }
             }
         },
