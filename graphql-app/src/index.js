@@ -21,6 +21,15 @@ const users = [
             state: 'Bangkok2',
             city: '2'
         }
+    },
+    {
+        id: '3',
+        name: '3',
+        age: '3',
+        location: {
+            state: 'Bangkok3',
+            city: '3'
+        }
     }
 ]
 
@@ -50,6 +59,7 @@ const server = createServer({
             # mutations
             type Mutation {
                 addUser(name: String!, age: Int!): [User!]!
+                updateUser(id: ID!, name: String, age: Int): User!
             }
         `,
         // o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o
@@ -77,6 +87,21 @@ const server = createServer({
                     })
 
                     return users 
+                },
+                updateUser: (parent, args, ctx, info) => {
+                    const { id, name, age } = args;
+                    const user = users.find((user) => user.id === id);
+
+                    if (!user) {;
+                    }
+                    if (name) {
+                        user.name = name;
+                    }
+                    if (age) {
+                        user.age = age;
+                    }
+
+                    return user
                 }
             }
         },
