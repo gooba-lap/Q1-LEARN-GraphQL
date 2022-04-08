@@ -1,7 +1,19 @@
 // const { GraphQLServer } = require('graphql-yoga');
 // ! err -> ⬇ use this below ⬇
-const { createServer } = require('graphql-yoga');
-const { v4: uuidv4 } = require('uuid')
+
+// const { createServer } = require('graphql-yoga');
+
+// const { PubSub } = require('graphql-subscriptions');
+// const pubsub = new PubSub();
+
+// const { v4: uuidv4 } = require('uuid')
+
+// ? test  :  ⬇ use this below ⬇
+
+const { GraphQLServer , PubSub } = require('graphql-yoga')
+const { v4:uuidv4 } = require('uuid')
+const pubsub = new PubSub
+
 
 const users = [
     {
@@ -62,6 +74,13 @@ const server = createServer({
                 updateUser(id: ID!, name: String, age: Int): User!
                 deleteUser(id: ID!): User!
             }
+
+            # subcription 
+            # o-o pubsub o-o
+            type Subcription {
+                update: User
+            }
+
         `,
         // o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o
         resolvers: {
@@ -103,6 +122,11 @@ const server = createServer({
                         user.age = age;
                     }
 
+    // o-o pubsub o-o
+                    pubsub.publish('update_user', {
+                        update: user
+                    })
+
                     return user
                 },
                 deleteUser: (parent, args, ctx, info) => {
@@ -113,6 +137,15 @@ const server = createServer({
 
                     const deleteUser = users.splice(index, 1);
                     return deleteUser 
+                }
+            },
+
+    // o-o pubsub o-o
+            Subcription: {
+                update: {
+                    Subcription: (parent, args, ctx, info) => {
+                        return pubsub.asyncIterator('update_user')
+                    }
                 }
             }
         },
