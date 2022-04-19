@@ -1,5 +1,5 @@
 ## P1-T-WebDevSimplified
-### Learn GraphQL In 40 Minutes
+### 🟢 (Done) | Learn GraphQL In 40 Minutes 
 - https://www.youtube.com/watch?v=ZQL7tL2S0oQ
 
 <table>
@@ -13,3 +13,9 @@
   </tr>
   
 </table>
+
+</br>
+
+## P1-T-PedroTech
+### 🟡 (Doing) | Learn GraphQL in 4 Hours - From Beginner to Expert 
+- https://www.youtube.com/watch?v=yqWzCV0kU_c&list=PLpPqplz6dKxXICtNgHY1tiCPau_AwWAJU&index=9
