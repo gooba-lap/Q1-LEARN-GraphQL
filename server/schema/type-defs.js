@@ -50,6 +50,7 @@ const typeDefs = gql`
         INDIA
         GERMANY
         CHILE
+        UKRAINE
     }
 `;
  
