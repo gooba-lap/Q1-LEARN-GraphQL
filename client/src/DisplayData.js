@@ -95,10 +95,10 @@ function DisplayData() {
                 data.users.map((user) => {
                     return (
                         <div>
-                            <h1>Name: {user.name}</h1>
-                            <h1>Username: {user.username}</h1>
-                            <h1>Age: {user.age}</h1>
-                            <h1>Nationality: {user.nationality}</h1>
+                            <h4>🎃 Name : {user.name} 🎃 Username : {user.username}</h4>
+                            {/* <h4>Username: {user.username}</h4> */}
+                            <h4>🧓🏻 Age : {user.age} 🇺🇸 Nationality : {user.nationality}</h4>
+                            {/* <h4>🎃 Nationality: {user.nationality}</h4> */}
                             <br/>
                         </div>
                     )
@@ -107,7 +107,7 @@ function DisplayData() {
 
             {movieData &&
                 movieData.movies.map((movie) => {
-                    return <h1>Movie Name: {movie.name}</h1>
+                    return <h4>🎞 Movie Name : {movie.name}</h4>
                 })
             }
 
@@ -133,10 +133,10 @@ function DisplayData() {
                 <div>
                     {movieSearchedData && (
                         <div>
-                            <h1>MovieName: {movieSearchedData.movie.name}</h1>
-                            <h1>
-                                Year Of Publication: {movieSearchedData.movie.yearOfPublication}
-                            </h1>
+                            <h4>MovieName : {movieSearchedData.movie.name}</h4>
+                            <h4>
+                                Year Of Publication : {movieSearchedData.movie.yearOfPublication}
+                            </h4>
                         </div>
                     )}
                     {movieError && <h1>There was an error fetching the data</h1>}
