@@ -2,7 +2,9 @@
 ### Learn GraphQL in 4 Hours - From Beginner to Expert
 - https://www.youtube.com/watch?v=yqWzCV0kU_c&list=PLpPqplz6dKxXICtNgHY1tiCPau_AwWAJU&index=9
 
-3:09:52
+## run
+- client -> npm start
+- server -> npm run start
 
 <table>
   <tr>

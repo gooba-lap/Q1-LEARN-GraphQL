@@ -13,5 +13,5 @@ o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o
 ## run
 
 ```
-npm start
+npm run start
 ```
