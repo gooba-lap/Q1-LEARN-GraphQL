@@ -1,15 +1,14 @@
 ## P1-T-PedroTech
+
 ### Learn GraphQL in 4 Hours - From Beginner to Expert
 - 🟡 - wating -> 3:35:37 / 3:55:13 • Context, Fragments, Unions
 - https://www.youtube.com/watch?v=yqWzCV0kU_c&list=PLpPqplz6dKxXICtNgHY1tiCPau_AwWAJU&index=9 
 
-
-## Run
-### client
+### Client
 ```
 npm start
 ```
-### server 
+### Server 
 ``` 
 npm run start
 ```
