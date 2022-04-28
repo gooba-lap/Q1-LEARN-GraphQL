@@ -34,7 +34,7 @@ const CREATE_USER_MUTATION = gql`
             id
         }
     }
-`
+` 
 
 function DisplayData() {
     const [movieSearched, setMovieSearched] = useState("");
