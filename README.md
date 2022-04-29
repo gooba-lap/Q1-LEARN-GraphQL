@@ -18,11 +18,3 @@
 </table>
 
 </br>
-
-
-
-
-
-
-
-git commit -m "JSON Server & Axios"  
